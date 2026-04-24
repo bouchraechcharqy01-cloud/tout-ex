@@ -1,0 +1,69 @@
+ex1:
+
+let n1=prompt("entrez la premier nombre :");
+let n2=prompt("entrez le deuxieme nombre :");
+n1=parseFloat(n1);
+n2=parseFloat(n2);
+if (isNaN(n1)|| isNaN(n2)){
+    console.log("erreur:entrez des nombres valides :" );
+}else{
+    let somme = n1+n2;
+    let difference =n1-n2;
+    let produit =n1*n2;
+    if (n2!==0){
+        let quotient = n1/n2;
+        console.log("somme :"+somme);
+        console.log("difference :"+difference);
+        console.log("produit:"+produit);
+        console.log("quotient :"+quotient);
+    }else{
+        console.log("erreur : division par 0 impossible ");
+    }
+}
+
+
+
+ex2:
+
+let nombreADeviner = Math.floor(Math.random() * 10) + 1;
+let tentatives = 0;
+let trouve = false;
+while (!trouve) {
+  let proposition = prompt("Devinez un nombre entre 1 et 10:");
+  proposition = Number(proposition); 
+  tentatives++;
+if (proposition === nombreADeviner) {
+    alert("Bravo! Vous avez trouvé en " + tentatives + " tentatives.");
+    trouve = true;
+} else if (proposition < nombreADeviner) {
+    alert("Le nombre est plus grand.");
+} else {
+    alert("Le nombre est plus petit.");
+}
+}
+
+
+
+ex3:
+
+const QUESTIONS = [
+  ["Quelle est la capitale de la France ?", "Paris"],
+  ["Combien font 2 + 2 ?", "4"],
+  ["Quelle est la couleur du ciel ?", "Bleu"]
+];
+function lancerQuiz() {
+  let score = 0; 
+ for (let i = 0; i < QUESTIONS.length; i++) {
+    let question = QUESTIONS[i][0];
+    let reponseCorrecte = QUESTIONS[i][1];
+    let reponseUtilisateur = prompt(question);
+    if (reponseUtilisateur === reponseCorrecte) {
+      alert("Réponse juste");
+      score++;
+    } else {
+      alert("Réponse fausse .La bonne réponse était: " + reponseCorrecte);
+    }
+  }
+  alert("Vous avez répondu correctement à " + score + " questions sur " + QUESTIONS.length);
+}
+lancerQuiz();
